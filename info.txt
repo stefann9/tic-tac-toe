@@ -1,0 +1,75 @@
+the board is divided into 9 divs representing
+all the spots that the players can choose.
+
+if the chosen spot is empty, the player marks
+that spot(div) with class = symbol (.X or .O) and
+adds a button made by .makeMarker(symbol) method
+which returns a marker (button) with class = symbol 
+and the symbol of that player as innerText
+
+the chosen spot is pushed into table array
+table is used by isDraw function
+
+win() function use winSpots() object
+which contains all the combinations
+of winning spots as arrays
+
+win(symbol) checks these arrays
+if one has all elements contain class = symbol
+return true
+
+/////////////////////////////////////////////
+newGameBtn button:
+1. resetGame() 
+-clean the table
+-deal with players turn
+-remove all markers from tableSpots
+-set gameOn to true
+-add click event for resetBtn
+-set playerMoveDisplay() = displays whoes turn is
+2. Make 2 new players
+-ask for name
+-set score = 0
+-set symbol (player 1 will always get X)
+depending on the symbol .makeMarker(symbol) method makes a button with
+that symbol
+-set turn - X is first
+
+
+3. update score table display 
+
+
+4. playerMoveDisplay () shows whose turn it is
+
+main
+the container contains 9 divs that players can choose
+the chosen div receives the X or O class and a button used as a marker with the X or O symbol
+only if the div has not already been chosen
+1 save player choice
+
+2 update symbol and marker with setPlayerTurn()
+setPlayerTurn():
+-returns [player.symbol, player.makeMarker(player.symbol)]
+- ex. if p1 true => return ["X",player.makeMarker("X")] 
+    
+
+3 check if choice is empty and doesn't have any marker
+-if true choice adds symbol class (X or O)
+-append marker(button) to that choice(div)
+-save the choice in table array
+-nextTurn() switch players turn
+-playerMoveDisplay() displays player turn
+
+4 check for win or draw
+win (symbol) checks all variants of winning spots 
+winning spots are store in winSpots object as arrays
+if one of the winning options is true
+--player score + 1
+--run showWiningSpots(marker) which adds the winBorder class
+for winning spoats
+--display winner name
+-isDraw() check the length of the table (that adds each player's choice)
+with the length of the available spaces 
+-if true gameOn = false
+-add click event for resetBtn
+

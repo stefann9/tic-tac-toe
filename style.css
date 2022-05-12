@@ -1,0 +1,198 @@
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+html {
+    box-sizing: border-box;
+    background-color: rgb(20, 20, 20);
+    /* color: aliceblue; */
+}
+body{
+    width: 90%;
+    margin:2vh auto;
+    display:grid;
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+}
+
+
+/* title */
+h1{
+    margin:0;
+    grid-template-columns: 1fr;
+    text-align: center;
+    font-size: 3rem;
+    color: aliceblue;
+}
+
+
+
+/* buttons nav */
+.buttons{
+    text-align: center;
+}
+button{
+    color: aliceblue;
+    background-color: rgba(255, 255, 255, 0.115);
+    font-size: 1rem;
+    border: 2px solid rgb(255, 255, 255);
+    padding: 1% 2%;
+    border-radius: 10%;
+    margin:0 0.5rem;
+}
+button:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    /* font-size: 1.1rem; */
+    border: 2px solid rgb(0, 0, 0);
+}
+button:active{
+    font-size: 1.05rem;
+}
+
+
+/* score table */
+#score{
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+li{
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.8rem;
+    border-top: 1px solid black;
+}
+li:last-child,li:nth-child(1){
+    color: aliceblue;
+    border: none;
+    margin-bottom:1rem;
+    grid-column: 1/-1;
+}
+
+#playerTurn{
+    font-size: 3rem;
+    margin:0;
+    margin-top: 2rem;
+}
+
+
+
+/* tic-tac-toe table */
+.square-box{
+    width: 50%;
+    margin:0 auto;
+    /* margin-top: 5vh; */
+    position: relative;
+    
+}
+.square-box::before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    border:2px solid rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgba(59,59,59,1) 0%, rgba(144,144,144,1) 48%, rgba(59,59,59,1) 100%);
+}
+
+/* table spots */
+.container > div{
+    /* display: flex; */
+
+    position: relative;
+
+    border:1px solid black;
+}
+.container > div > button{
+    /* flex:1; */
+    
+    position: absolute; 
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0; 
+    margin:0;
+
+    font-size: 4em ;
+    padding: 0;
+    padding-top: 5px;
+    line-height: 0px;
+
+    border: none;
+    background-color: inherit;
+}
+.container > div:hover{
+    border: 1px solid rgb(193, 193, 193);
+}
+
+/* marker class*/
+.O{
+    background: radial-gradient(circle, rgba(0,18,255,1) 36%, rgba(0,220,255,1) 100%);
+    color: black;
+}
+.X{
+    background: radial-gradient(circle, rgba(255,0,0,1) 43%, rgba(255,175,0,1) 100%);
+    color:black;
+}
+
+/* border for the wining spots */
+.container >.winBorder{
+    border: 3px solid rgb(236, 236, 236);
+}
+
+
+
+@media (min-width:731px){
+    body{
+        width: 70%;
+    }
+}
+
+@media (min-width:900px){
+    body{
+        width: 60%;
+    }
+}
+
+@media (min-width:1114px){
+    body{
+        width: 50%;
+    }
+}
+
+@media (min-width:1314px){
+    body{
+        width: 40%;
+    }
+}
+
+@media  (max-height:650px){
+    body{
+        width: 70%;
+        row-gap: 0.2rem;
+    }
+    
+    #playerTurn{
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+   
+    li,h1,.buttons{
+       
+        font-size:1rem ;
+        
+    }
+    .square-box{
+        width: 40%;
+    }
+}
